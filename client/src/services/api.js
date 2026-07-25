@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/leads";
+const API_URL = "https://leaddesk-mini-jyoti.onrender.com";
 
 export const createLead = async (leadData) => {
   const response = await fetch(API_URL, {
