@@ -1,16 +1,60 @@
-# React + Vite
+# LeadDesk Mini
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+LeadDesk Mini is a lead management application where users can submit their details through a form and admins can manage leads through an authenticated dashboard.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Frontend:
+- React
+- JavaScript
+- CSS
 
-## React Compiler
+Backend:
+- Node.js
+- Express.js
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Database:
+- MongoDB Atlas
 
-## Expanding the ESLint configuration
+Authentication:
+- JWT Authentication
+- Password hashing with bcrypt
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Data Model
+
+### User
+- _id
+- email
+- password (hashed)
+- role
+
+### Lead
+- _id
+- name
+- email
+- budget
+- message
+- status
+- createdAt
+
+## Authentication Approach
+
+- Admin passwords are stored securely using bcrypt hashing.
+- JWT tokens are used for authentication.
+- Protected routes are implemented for admin access.
+- Sensitive information is stored using environment variables.
+
+## Deployment
+
+Frontend:
+(Paste your Vercel URL here)
+
+Backend:
+(Paste your Render URL here)
+
+## Admin Flow
+
+1. Admin logs in using valid credentials.
+2. Admin views submitted leads.
+3. Admin updates lead status.
+4. Changes are stored in the database.
