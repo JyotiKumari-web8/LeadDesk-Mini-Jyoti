@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LeadDesk Mini - Complete Documentation & Deployment Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.6;
+      font-size: 13.5px;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      color: white;
+      padding: 24px 28px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+    .header-banner h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .header-banner p {
+      margin: 0;
+      font-size: 13px;
+      color: #e0f2fe;
+    }
+    h2 {
+      color: #1e3a8a;
+      border-bottom: 2px solid #e0e7ff;
+      padding-bottom: 6px;
+      margin-top: 26px;
+      margin-bottom: 12px;
+      font-size: 18px;
+      page-break-after: avoid;
+    }
+    h3 {
+      color: #2563eb;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      page-break-after: avoid;
+    }
+    p, li {
+      color: #334155;
+    }
+    ul, ol {
+      margin-top: 4px;
+      margin-bottom: 12px;
+      padding-left: 22px;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-green { background: #dcfce7; color: #166534; }
+    .badge-orange { background: #ffedd5; color: #9a3412; }
+    
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #3b82f6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      page-break-inside: avoid;
+    }
+    .card.warning {
+      border-left-color: #f59e0b;
+      background: #fffbeb;
+    }
+    .card.success {
+      border-left-color: #10b981;
+      background: #f0fdf4;
+    }
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 12.5px;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      background-color: #f1f5f9;
+      color: #0f172a;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    pre {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      overflow-x: hidden;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      page-break-inside: avoid;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer {
+      margin-top: 30px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 10px;
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>LeadDesk Mini - Project & Deployment Guide</h1>
+    <p>Complete Reference Manual &bull; Architecture &bull; User Guide &bull; MongoDB Cloud &bull; Live Hosting</p>
+  </div>
+
+  <h2>1. Executive Summary & Capabilities</h2>
+  <p><strong>LeadDesk-Mini</strong> is a complete, production-grade Lead Management CRM system engineered for agile sales and customer acquisition teams. It bridges public inquiry capture with an admin workspace featuring real-time stage progression, internal collaboration notes, and search-and-filter capabilities.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Key Technologies</th>
+        <th>Main Functionality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Frontend</strong></td>
+        <td>React 19, Vite, Vanilla CSS</td>
+        <td>Landing Page, Public Demo Request, Kanban Board, Data Table, Internal Notes Drawer, CSV Export.</td>
+      </tr>
+      <tr>
+        <td><strong>Backend</strong></td>
+        <td>Node.js, Express.js (ES Modules)</td>
+        <td>RESTful API, JWT Authentication, Lead CRUD, Stage Updates, Query Filters, Route Protection.</td>
+      </tr>
+      <tr>
+        <td><strong>Database</strong></td>
+        <td>MongoDB Atlas (Cloud AWS)</td>
+        <td>Managed NoSQL document storage for Leads and Admin user credentials.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Step-by-Step User Guide</h2>
+
+  <h3>A. For Public Visitors & Inbound Prospects</h3>
+  <ol>
+    <li>Navigate to the homepage at <code>http://localhost:5173/</code> (or your live public domain).</li>
+    <li>Scroll to the <strong>Request Demo / Contact</strong> section.</li>
+    <li>Fill in the form fields:
+      <ul>
+        <li><strong>Full Name</strong> (Required)</li>
+        <li><strong>Work Email</strong> (Required, validated format)</li>
+        <li><strong>Phone Number</strong> (Required)</li>
+        <li><strong>Company Name</strong> (Optional)</li>
+        <li><strong>Estimated Budget</strong> (Dropdown selection)</li>
+        <li><strong>Project Message</strong> (Optional)</li>
+      </ul>
+    </li>
+    <li>Click <strong>Submit Request</strong>. The inquiry is ingested and saved into the database instantly.</li>
+  </ol>
+
+  <h3>B. For Sales Representatives & Admin Teams</h3>
+  <ol>
+    <li>Visit <code>/login</code> and authenticate using your registered Admin credentials.</li>
+    <li>Inside the <strong>Admin Dashboard (<code>/admin</code>)</strong>:
+      <ul>
+        <li><strong>Kanban Pipeline View:</strong> Drag or transition leads across stages: <em>New &rarr; Contacted &rarr; Qualified &rarr; Lost</em>.</li>
+        <li><strong>Table View:</strong> Instant search by name or company, and filter by priority (<em>Urgent, High, Medium, Low</em>).</li>
+        <li><strong>Lead Details & Internal Notes:</strong> Click any lead to inspect details and append timestamped team notes.</li>
+        <li><strong>CSV Export:</strong> Click <em>Export CSV</em> to generate spreadsheet files for reporting.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <div class="page-break"></div>
+
+  <h2>3. MongoDB Atlas Database Details & Structure</h2>
+
+  <div class="card">
+    <div class="card-title">MongoDB Atlas Cloud Connection</div>
+    <p><strong>Cluster:</strong> <code>Cluster0 (cluster0.dzrc2es.mongodb.net)</code><br>
+    <strong>Database Name:</strong> <code>leaddesk</code><br>
+    <strong>DB User:</strong> <code>jyotikumariroy204_db_user</code><br>
+    <strong>Web Portal URL:</strong> <a href="https://cloud.mongodb.com">https://cloud.mongodb.com</a></p>
+  </div>
+
+  <h3>Document Schema Definitions</h3>
+  <p><strong>1. Leads Collection (<code>leads</code>):</strong></p>
+  <pre><code>{
+  "_id": ObjectId("..."),
+  "fullName": "Sarah Jenkins",
+  "email": "sarah@acmecloud.com",
+  "phone": "+1 555-0199",
+  "company": "Acme Cloud Solutions",
+  "budget": "$10k - $25k",
+  "priority": "Urgent",    // Low | Medium | High | Urgent
+  "status": "New",          // New | Contacted | Qualified | Lost
+  "source": "Website Form",
+  "notes": [
+    {
+      "text": "Initial discovery call scheduled for 3 PM.",
+      "author": "Admin",
+      "createdAt": ISODate("2026-09-16T15:30:00Z")
+    }
+  ],
+  "createdAt": ISODate("..."),
+  "updatedAt": ISODate("...")
+}</code></pre>
+
+  <p><strong>2. Users Collection (<code>users</code>):</strong></p>
+  <pre><code>{
+  "_id": ObjectId("..."),
+  "email": "admin@leaddesk.com",
+  "password": "$2a$10$hashedPasswordString...",
+  "role": "Admin",
+  "createdAt": ISODate("...")
+}</code></pre>
+
+  <div class="card warning">
+    <div class="card-title">Important: Atlas Network Access Setting</div>
+    <p>To enable cloud deployments (Render/Vercel) to communicate with MongoDB Atlas:</p>
+    <ol style="margin-bottom:0;">
+      <li>Log into <strong>cloud.mongodb.com</strong> &rarr; Click <strong>Network Access</strong>.</li>
+      <li>Ensure <strong>0.0.0.0/0</strong> (Allow Access from Anywhere) is added to the IP Access List.</li>
+    </ol>
+  </div>
+
+  <h2>4. Cloud Deployment & Sharing Guide</h2>
+
+  <h3>Step 1: Backend Deployment (Render.com)</h3>
+  <ol>
+    <li>Push repository to GitHub.</li>
+    <li>Go to <strong>render.com</strong> &rarr; <strong>New +</strong> &rarr; <strong>Web Service</strong>.</li>
+    <li>Set <strong>Root Directory</strong> to <code>server</code>, <strong>Build Command</strong> to <code>npm install</code>, and <strong>Start Command</strong> to <code>npm start</code>.</li>
+    <li>Add Environment Variables:
+      <ul>
+        <li><code>PORT</code> = <code>5000</code></li>
+        <li><code>MONGODB_URI</code> = <em>(Your Atlas Connection String)</em></li>
+        <li><code>JWT_SECRET</code> = <em>(Your secret key)</em></li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Step 2: Frontend Deployment (Vercel.com)</h3>
+  <ol>
+    <li>Go to <strong>vercel.com</strong> &rarr; Import your GitHub repo.</li>
+    <li>Set <strong>Root Directory</strong> to <code>client</code>.</li>
+    <li>Add Environment Variable:
+      <ul>
+        <li><code>VITE_API_URL</code> = <code>https://your-backend-service.onrender.com</code></li>
+      </ul>
+    </li>
+    <li>Click <strong>Deploy</strong>. You will receive a custom public link (e.g. <code>https://leaddesk.vercel.app</code>).</li>
+  </ol>
+
+  <div class="card success">
+    <div class="card-title">Custom Domain Setup (Optional)</div>
+    <p>In Vercel &rarr; Project Settings &rarr; Domains &rarr; Enter your domain (e.g. <code>www.mycompany.com</code>) &rarr; Add the generated CNAME record in your domain registrar DNS settings.</p>
+  </div>
+
+  <div class="footer">
+    LeadDesk Mini Documentation &bull; Generated for Jyoti Kumari &bull; All Systems Active & Functional
+  </div>
+
+</body>
+</html>
