@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_API_URL || 
-  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+  (window.location.port === "5173" || window.location.port === "3000"
     ? "http://localhost:5000"
-    : "https://leaddesk-mini-jyoti.onrender.com");
+    : "");
 
 // Helper to get auth headers
 const getHeaders = (contentType = "application/json") => {
